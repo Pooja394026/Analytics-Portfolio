@@ -1,0 +1,31 @@
+\section{Literature Review}
+
+\subsection{H.M. Abdul Aziz, Satish V. Ukkusuri, and Samiul Hasan (2013)}
+
+In ``Using Random-Parameter Logit Models to Explore Crash Severity in NYC,'' the authors modeled each borough separately to capture local effects and found variable impacts of gender, parking density, and street features. Their research demonstrated that Manhattan's dense urban environment produces different severity patterns compared to outer boroughs like Queens and Brooklyn.
+
+This suggests modeling each borough separately or including location-based interaction terms. It highlights the predictive relevance of driver demographics and road speed conditions, supporting my decision to include borough-level effects and geographic variables in the severity prediction model.
+
+\subsection{Liran Einav, Amy Finkelstein, and Jonathan Levin (2022)}
+
+In ``Examining How Real-World Telematics Data Affects Driver Behavior and Risk Pricing,'' Einav, Finkelstein and Levin examined real-world telematics data and found that drivers reduced risky behavior by approximately 30 percent when monitored. Their analysis showed that awareness of being tracked encouraged safer driving habits, leading to fewer and less severe crashes.
+
+The research validates the effectiveness of behavioral monitoring in insurance design and underscores the strategic value of real-time data in refining pricing models. The research demonstrates the importance of driver behavior factors in crash severity prediction and supports the incorporation of behavioral indicators—such as distraction or intoxication—into injury severity modeling for both risk assessment and incentive-aligned insurance strategies.
+
+\subsection{Md. Asif Khan Rifat, Ahmedul Kabir, and Armana Sabiha Huq (2024)}
+
+In ``Comparing ML Models for Fatality Prediction in Crash Data,'' Rifat et al. conducted a comprehensive comparison of machine learning algorithms for predicting traffic fatalities using crash data from multiple jurisdictions. The study evaluated various models including Random Forest, XGBoost, and LightGBM for handling the prediction task. LightGBM achieved the highest performance metrics. The researchers employed SHAP (SHapley Additive exPlanations) for model interpretability, validating that temporal factors (time of day), spatial factors (location characteristics), and infrastructure elements (road class) emerged as the most important predictors of fatal outcomes.
+
+This provides direct methodological validation for my research approach. The confirmed effectiveness of the LightGBM + SHAP pipeline supports my model selection strategy. Additionally, their emphasis on model interpretability through SHAP analysis aligns with the need for actionable insights in severe crash prediction, providing direct support for my choice of interpretable machine learning methods in safety-critical applications.
+
+\subsection{Kenny Santos, João P. Dias, and Conceição Amado (2021)}
+
+In their ``Comprehensive Literature Review of ML Algorithms for Crash Injury Severity Prediction,'' Santos et al. conducted a systematic review analyzing 56 peer-reviewed studies published between 2001-2021 focusing on machine learning applications in crash injury severity prediction. The meta-analysis revealed that ensemble methods, particularly Random Forest and gradient boosting variants (XGBoost, LightGBM), consistently outperformed individual classifiers across diverse datasets and geographic contexts. The review identified that most successful studies achieved AUC scores between 0.65-0.80, with ensemble methods showing superior performance in handling complex feature interactions and non-linear relationships inherent in crash severity data. The analysis also highlighted the importance of feature engineering and the growing trend toward interpretable machine learning approaches in transportation safety research.
+
+The comprehensive literature review provides crucial context for interpreting my model performance results and validates my methodological choices. The finding that ensemble methods consistently achieve AUC scores in the 0.65-0.80 range for crash severity prediction establishes realistic performance benchmarks for evaluating my results. The review's emphasis on feature engineering importance supports my comprehensive approach to creating behavioral, temporal, and environmental features for severity prediction.
+
+\subsection{Jungsoo Lee, Taehoon Yoon, Seonho Kwon, and Jangmyung Lee (2020)}
+
+In their ``Model Evaluation for Forecasting Traffic Accident Severity in Rainy Seasons Using Machine Learning,'' the authors analyzed nine years of traffic accident data from Seoul, Korea, specifically focusing on the impact of weather conditions on crash severity during rainy seasons. The study systematically evaluated multiple machine learning algorithms including Decision Trees, Random Forest, SVM, and Neural Networks for predicting accident severity outcomes. Their comprehensive feature set included meteorological variables (rainfall intensity, wind speed, visibility), temporal factors (time of day, season), and infrastructure characteristics (road geometry, surface type). The research revealed that rainfall intensity and road geometry characteristics emerged as the top predictive factors, with Random Forest models achieving the highest accuracy when environmental variables were properly integrated into the feature space.
+
+The study provides direct empirical validation for my decision to incorporate NOAA weather data as core predictive features rather than treating them as control variables. Their finding that meteorological factors rank among the most important predictors strongly supports my approach to treat weather conditions as primary severity determinants. The study's methodology of integrating hourly weather observations with crash records directly parallels my data integration approach, providing methodological validation for the environmental feature engineering strategy employed in my research.

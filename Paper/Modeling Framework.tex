@@ -1,0 +1,45 @@
+\section{Modeling Framework}
+\subsection{Model Architecture}
+
+My modeling approach employs a multi-method strategy balancing interpretability requirements with predictive performance. The framework includes an ordered logit baseline model for interpretable coefficient analysis, multiple machine learning approaches for performance comparison, and an 80–20 train-test split with three-fold cross-validation maintaining severity class proportions. Model selection prioritizes AUC as the primary metric while evaluating accuracy, precision, and recall across all severity classes.
+
+To improve predictive performance, each machine learning model underwent hyperparameter tuning using randomized search with three-fold cross-validation. Randomized grid search was used to iteratively explore combinations of hyperparameters for each model while avoiding the computational cost of an exhaustive grid search. For Random Forest, the search spanned combinations of n\_estimators, max\_depth, min\_samples\_split, min\_samples\_leaf, and max\_features. The Logistic Regression model was tuned over a range of C values (logarithmically spaced) and solvers (lbfgs, saga). The XGBoost model parameters included n\_estimators, max\_depth, learning\_rate, subsample, and colsample\_bytree, while LightGBM tuning involved n\_estimators, max\_depth, learning\_rate, num\_leaves, subsample, and colsample\_bytree. The best hyperparameters for each model were selected based on the mean AUC score across the validation folds, ensuring robust generalization and fair model comparison.
+
+\subsection{Baseline Model Results (Ordered Logit)}
+
+\subsubsection{Theory}
+
+The Ordered Logit Model serves as the theoretical baseline for predicting crash injury severity levels, which follow a natural hierarchical ordering: Non-Severe (0) $<$ Severe (1) $<$ Fatal (2). This specification respects the ordinal structure of severity outcomes while capturing the influence of multiple risk factors simultaneously, providing essential interpretability before implementing more complex machine learning approaches.
+
+The model employs a latent variable formulation where an unobserved continuous severity score drives the observed categorical outcome. The latent severity score $Y^*_n$ for crash $n$ is expressed as:
+$Y^*_n = \alpha + \beta X_n + U_n$
+where $Y^*_n$ represents latent injury severity for crash $n$, $X_n$ captures observed crash-level features (for example temperature, vehicle age, sex), $\beta$ represents feature effect coefficients, and $U_n \sim Logistic(0,1)$ serves as the random error term following a logistic distribution.
+
+The observed severity level $Y_n$ emerges through threshold-based categorization, where the latent severity crosses estimated threshold parameters:
+$Y_n = \begin{cases} 
+0 & \text{if } Y^*_n \leq \tau_1 \\
+1 & \text{if } \tau_1 < Y^*_n \leq \tau_2 \\
+2 & \text{if } Y^*_n > \tau_2
+\end{cases}$
+These thresholds $\tau_1, \tau_2$ are learned from the data during model training, enabling precise calibration to the severity distribution observed in NYC crash data.
+
+The model estimates the cumulative probability of falling in or below category $j$ using the cumulative logit formulation:
+$\text{logit}(Pr(Y \leq j)) = \theta_j - \beta_1 X_1 - \beta_2 X_2 - \cdots - \beta_k X_k$
+where $j$ represents the index of injury category (for example 0, 1), $\theta_j$ denotes the estimated threshold or cut point separating category $j$ and $j+1$, and $\beta_k$ captures the effect of predictor $X_k$ (for example age, weather). This interpretable baseline helps understand directional influence of predictors, provides interpretable class probabilities, and serves as a benchmark for machine learning extensions (for example LightGBM, SHAP). Model coefficients quantify how each feature shifts severity likelihood on the latent scale, while estimated thresholds enable precise mapping to ordered outcomes.
+
+\subsubsection{Insights}
+
+The ordered logit model demonstrated acceptable performance, with the logarithm of the likelihood function equal to -121,120, an AIC of 242,300, and a BIC of 242,800. These metrics indicate a reasonable fit and provide essential insights into data patterns. The model also yields standardized coefficients, enabling direct comparisons across variables and supporting interpretable, data-driven conclusions.
+
+
+
+
+Key coefficient insights reveal Vehicle Type Groups demonstrate the strongest associations with severity, with Small and Large Passenger Vehicles showing coefficients of 0.241 and 0.238 respectively. Driving Behavior categories provide actionable insights: Rule Violation (0.168), Unsafe Maneuver (0.138), and Under Influence (0.115) all show substantial severity increases. Geographic effects show Manhattan with coefficient 0.124, while temporal patterns demonstrate Evening (0.092) and Night (0.075) periods associated with higher severity.
+
+
+\input{../Tables/ordered_logit_coefficients.tex}
+
+
+
+The model coefficients quantify how each feature shifts severity likelihood on the latent scale, with positive coefficients indicating increased severity propensity and negative coefficients suggesting protective effects. The estimated thresholds enable precise mapping between continuous severity propensity and discrete outcome categories, providing the interpretable foundation necessary for regulatory compliance while establishing benchmark performance for subsequent machine learning model evaluation.
+

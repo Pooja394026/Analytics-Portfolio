@@ -1,0 +1,21 @@
+\section{Theoretical Framework}
+
+\subsection{Economic Theory}
+
+The Value of Statistical Life (VSL) framework provides additional economic foundation for quantifying severe injury impacts: $VSL = \frac{\Delta WTP}{\Delta Risk}$, where $\Delta WTP$ represents additional willingness to pay for safety improvements and $\Delta Risk$ represents the reduction in injury or fatality risk. The insurance pricing framework that emerges can be expressed as: $Premium = Pr(Accident) \times Pr(Severe|Accident) \times E[Loss] + Risk Loading$. This decomposition reveals that accurate severity prediction captured by $Pr(Severe|Accident)$ directly influences premium determination.
+
+The VSL approach enables insurers to monetize the social value of preventing severe injuries and fatalities, providing economic justification for investments in safety technologies and risk reduction measures. By incorporating VSL estimates into pricing models, insurance companies can better align premiums with the true societal costs of traffic accidents, creating incentives for policyholders to adopt safer driving behaviors and vehicle safety features.
+
+\subsection{Reverse Application of Discrete Choice Theory}
+
+My analysis employs DCT in a novel reverse application. Rather than predicting prospective choice behavior, I observe realized injury severity outcomes (Non-Severe, Severe, Fatal) and work backward to infer which crash characteristics most likely contributed to the observed severity level. This methodological adaptation transforms the traditional choice prediction framework into a severity attribution model.
+
+In this application, the ``decision-maker'' becomes the underlying data-generating process that determines crash outcomes. Each collision represents a realization of a latent severity process influenced by multiple risk factors: (1) Behavioral Factors --- driver actions including rule violations, distraction, and impairment; (2) Environmental Conditions --- weather patterns, visibility, and temporal factors; (3) Vehicle Characteristics --- type, age, and safety technology presence; and (4) Spatial Context --- borough-specific infrastructure and traffic patterns.
+
+Each severity category represents a potential ``outcome'' determined by the combination of crash conditions, with higher-utility scenarios corresponding to more severe injury levels given the risk environment.
+
+\textbf{Strategic Value for Insurance Analytics}
+
+This theoretical framework provides several analytical advantages for insurance applications. Behavioral interpretation enables insurers to understand injury outcomes beyond simple correlation, revealing how specific combinations such as nighttime driving conditions or environmental hazards systematically increase the probability of severe outcomes. Heterogeneous risk modeling accommodates the diverse range of crash-level predictors that vary substantially across NYC's complex urban environment, from Manhattan's dense traffic patterns to Staten Island's suburban characteristics.
+
+Most importantly, the framework establishes a foundation for ordered modeling approaches. Since injury severity represents an inherently ordered outcome with natural progression from property damage through severe injury to fatality, DCT extends seamlessly into an Ordered Logit specification. This connection provides economic justification for the baseline model while supporting the transition to machine learning approaches that can capture complex non-linear relationships while maintaining interpretability requirements essential for insurance regulatory compliance and business decision-making.

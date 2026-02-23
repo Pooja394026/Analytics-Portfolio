@@ -1,0 +1,24 @@
+\section{Data Preparation}
+
+My analysis relies on comprehensive data integration combining multiple high-quality sources spanning temporal, environmental, behavioral, and demographic dimensions: (1) Motor Vehicle Collisions, Crashes --- comprehensive collision incident information including timestamps, geographic coordinates, contributing factors, and initial severity assessments; (2) Motor Vehicle Collisions, People --- detailed individual information including demographics, injury severity outcomes, person type, and license information; (3) Motor Vehicle Collisions, Vehicles --- vehicle characteristics including type, year of manufacture, registration state, and identification numbers; and (4) NOAA Weather Data --- hourly weather observations matched to collision records providing temperature, humidity, precipitation, wind speed, and weather descriptions.
+
+The integration process employs a multi-step join strategy: first joining People and Vehicles datasets using vehicle identification numbers, then merging with Crashes dataset using collision identification numbers, creating comprehensive records with incident, person, and vehicle information for each collision event.
+
+\subsection{Dataset Construction}
+
+My analysis employs a driver-focused approach filtering the dataset to concentrate on at-fault drivers. The filtering process identifies driver records within the People dataset, excluding passengers, pedestrians, and cyclists. At-fault driver identification utilizes contributing factor fields, with drivers associated with specific factors such as ``Unsafe Speed,'' ``Failure to Yield,'' or ``Driver Distraction'' classified as at-fault. 
+
+To ensure data quality and avoid potential biases, the analysis focuses on the most recent three years of collision data, deliberately excluding the COVID-19 period. This temporal restriction prevents the inclusion of anomalous traffic patterns and behavioral changes that occurred during the pandemic, which would introduce bias from this exceptional one-time event that significantly altered normal driving patterns and traffic volumes.
+
+\subsection{Final Target Variable Definition}
+
+The final analysis employs multiclass classification distinguishing between three distinct categories based on injury outcomes and their economic implications: (1) Non-Severe (63,066 observations) --- collisions with no injuries to any person involved in the accident, resulting in property damage only, these incidents do not require medical attention for any participants; (2) Severe (51,777 observations) --- collisions where anyone involved in the accident sustained injuries, ranging from minor to severe injuries, this category includes any level of physical harm requiring medical attention, from minor cuts to serious injuries requiring hospitalization; and (3) Fatal (21,123 observations) --- collisions resulting in one or more fatalities among any participants in the accident, these represent the most severe outcomes with maximum economic and social costs, including life insurance claims, wrongful death settlements, and immeasurable human loss.
+
+This tripartite classification provides insurance companies with the granularity needed for accurate premium calculation while supporting public safety agencies in targeted intervention planning. The distribution shows approximately 46.4 percent Non-Severe, 38.1 percent Severe, and 15.5 percent Fatal outcomes, reflecting the serious nature of at-fault driver incidents in NYC traffic.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{severity_frequency_plot.png}
+\caption{Distribution of Crash Severity Outcomes}
+\label{fig:severity_distribution}
+\end{figure}

@@ -1,0 +1,81 @@
+
+\section{Results and Analysis}
+\subsection{Model Performance Comparison}
+Systematic comparison across machine learning algorithms validates model selection decisions and provides confidence in result robustness.
+
+
+
+\input{../Tables/model_performance_table.tex}
+
+
+LightGBM achieves the highest AUC of 0.675, representing meaningful improvement over alternatives while demonstrating performance consistent with state-of-the-art results in crash severity prediction literature. The accuracy of 71.5 percent indicates the model correctly classifies nearly three-quarters of severity outcomes. Precision of 68.1 percent and recall of 73.8 percent demonstrate balanced performance across severity classes without systematic bias. XGBoost achieves comparable performance (AUC: 0.672), confirming gradient boosting approaches are well-suited to this domain.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{Lightgbm_confusion_matrix.png}
+\caption{Confusion Matrix --- LightGBM Model}
+\label{fig:confusion_matrix}
+\end{figure}
+
+The confusion matrix reveals strong diagonal performance with the model correctly predicting 9,200 non-severe cases, 6,936 severe cases, and 2,750 fatal cases. The model shows good discrimination between severity levels, with most misclassifications occurring between adjacent severity categories rather than extreme misclassifications (for example predicting fatal as non-severe). The highest confusion occurs between severe and non-severe categories (2,963 severe cases predicted as non-severe), which is expected given the inherent difficulty in distinguishing these adjacent severity levels and represents a less critical error than misclassifying fatal crashes.
+
+\subsection{Feature Importance Analysis}
+
+LightGBM's feature importance analysis reveals relative contributions of different variable categories to severity prediction.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{Feature Importance_lgbm.png}
+\caption{Feature Importance Rankings --- LightGBM Model}
+\label{fig:feature_importance}
+\end{figure}
+
+Environmental variables dominate rankings, with Temperature and Humidity Percent occupying top positions, emphasizing the critical role of weather conditions in determining crash severity. Age ranks third, confirming demographic importance while highlighting complex non-linear relationships. Vehicle Year appears fourth, indicating substantial roles of vehicle age and safety technology differences. The distributed importance across behavioral categories suggests different risky behaviors influence severity through distinct mechanisms requiring separate modeling.
+
+\subsection{SHAP Interpretability Analysis}
+
+SHAP analysis provides detailed insights into feature contributions enabling both global understanding and local interpretation.
+
+\subsubsection{Fatal Crash Risk Drivers}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{shap_summary_fatal_class.png}
+\caption{SHAP Summary --- Key Drivers of Fatal Crash Risk}
+\label{fig:shap_fatal}
+\end{figure}
+
+Rule Violation behaviors emerge as the strongest predictor with consistently positive SHAP values substantially increasing fatal crash probability. Geographic effects show Queens and Brooklyn with elevated fatal crash risk. Age demonstrates complex patterns: teenage drivers show elevated risk while elderly drivers show lower fatal risk than expected. Vehicle factors show protective effects for certain passenger vehicle types.
+
+\subsubsection{Severe Crash Risk Drivers}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{shap_summary_severe_class.png}
+\caption{SHAP Summary --- Key Drivers of Severe Risk}
+\label{fig:shap_severe}
+\end{figure}
+
+Age emerges as the primary factor for severe crashes with complex non-linear relationships. Rule Violations remain important but show less dominance compared to fatal outcomes. Geographic concentration continues in Queens and Brooklyn. Environmental factors show increased prominence with Temperature and Humidity demonstrating substantial SHAP value ranges.
+
+\subsubsection{Age-Specific Risk Patterns}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.0\textwidth]{shap_Age.png}
+\caption{SHAP Analysis --- Age and Injury Severity Patterns}
+\label{fig:shap_age}
+\end{figure}
+
+Teenage drivers demonstrate high SHAP values for fatal crashes, confirming elevated fatality risk supporting age-based insurance practices. Middle-aged drivers show neutral effects representing baseline risk. Elderly drivers show lower fatal risk but elevated severe injury risk, suggesting age-specific vulnerabilities requiring differentiated approaches.
+
+\subsubsection{Vehicle Year Risk Patterns}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{shap_Vehicle_Year.png}
+\caption{SHAP Analysis --- Vehicle Year and Injury Severity Patterns}
+\label{fig:shap_vehicle_year}
+\end{figure}
+
+Vehicle year demonstrates counterintuitive risk patterns revealing safety trade-offs in modern design. Newer vehicles show protective effects for severe injuries (negative SHAP values) due to advanced safety technologies, but paradoxically show increased fatal crash risk (positive SHAP values) despite superior safety features. This likely reflects that newer vehicles enable higher-speed crashes through better performance, are often driven by younger drivers with riskier behaviors, and may encourage aggressive driving. Pre-1980 vehicles show highest risk for both outcomes due to absent safety technologies. These findings suggest modern safety technology effectively reduces injury severity but behavioral and performance characteristics of newer vehicles may offset safety gains in fatal scenarios, indicating insurance pricing should balance both protective effects and increased high-severity crash exposure.

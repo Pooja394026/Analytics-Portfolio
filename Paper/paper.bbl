@@ -1,0 +1,101 @@
+\begin{thebibliography}{}
+
+\bibitem[\protect\citeauthoryear{??}{New}{}]{New}
+Technical report.
+
+\bibitem[\protect\citeauthoryear{Aziz, Ukkusuri, Hasan, and Akter}{Aziz
+  et~al.}{2013}]{aziz2013}
+Aziz, H. M.~A., S.~V. Ukkusuri, S.~Hasan, and S.~Akter (2013).
+\newblock {Exploring the Determinants of Pedestrian Injury Severity in New York
+  City}.
+\newblock {\em Accident Analysis \& Prevention\/}~{\em 50}, 1298--1309.
+
+\bibitem[\protect\citeauthoryear{Bankrate}{Bankrate}{2024}]{bankrate2024}
+Bankrate (2024).
+\newblock {Average Cost of Car Insurance in 2024}.
+\newblock Accessed: 2024.
+
+\bibitem[\protect\citeauthoryear{{Crash Intelligence Solutions}}{{Crash
+  Intelligence Solutions}}{2024}]{solutions2024}
+{Crash Intelligence Solutions} (2024).
+\newblock {Total Cost of Repair Industry Report}.
+\newblock {\em Auto Industry Insights\/}~{\em 15\/}(2), 45--62.
+
+\bibitem[\protect\citeauthoryear{Dionne and Rothschild}{Dionne and
+  Rothschild}{2014}]{dionne2014}
+Dionne, G. and C.~Rothschild (2014).
+\newblock {Economic Foundations of Auto Insurance}.
+\newblock In {\em Handbook of Insurance Economics}, pp.\  35--75. Springer.
+
+\bibitem[\protect\citeauthoryear{Einav, Finkelstein, and Levin}{Einav
+  et~al.}{2022}]{einav2022}
+Einav, L., A.~Finkelstein, and J.~Levin (2022).
+\newblock {The Impact of Monitoring Programs in U.S. Auto Insurance}.
+\newblock NBER Working Paper 29096, National Bureau of Economic Research.
+
+\bibitem[\protect\citeauthoryear{Forbes}{Forbes}{2024}]{forbes2024}
+Forbes (2024).
+\newblock {Auto Insurance Rates Rise in NYC}.
+\newblock Accessed: 2024.
+
+\bibitem[\protect\citeauthoryear{Gutiérrez-Osorio and
+  Pedraza}{Gutiérrez-Osorio and Pedraza}{2024}]{gutierrez2024}
+Gutiérrez-Osorio, C. and C.~Pedraza (2024).
+\newblock {Recent Advances in Traffic Accident Analysis and Prediction: A
+  Comprehensive Review of Machine Learning Techniques}.
+\newblock {\em arXiv preprint\/}.
+\newblock arXiv:2406.13968.
+
+\bibitem[\protect\citeauthoryear{Insurance}{Insurance}{2023}]{insurance2023}
+Insurance, M. (2023).
+\newblock {Industry Insights on Auto Risk Scoring}.
+\newblock Accessed: 2023.
+
+\bibitem[\protect\citeauthoryear{Investopedia}{Investopedia}{}]{investopedia}
+Investopedia.
+\newblock {Adverse Selection}.
+\newblock Accessed: July 26, 2025.
+
+\bibitem[\protect\citeauthoryear{Obasi, Benson, and Okwu}{Obasi
+  et~al.}{2023}]{obasi2023}
+Obasi, I.~C., C.~Benson, and M.~O. Okwu (2023).
+\newblock {Evaluating the Effectiveness of Machine Learning Techniques in
+  Forecasting the Severity of Traffic Accidents}.
+\newblock {\em Heliyon\/}~{\em 9\/}(8), e18812.
+
+\bibitem[\protect\citeauthoryear{Park, Kim, and Ha}{Park
+  et~al.}{2020}]{park2020}
+Park, S.~H., S.~M. Kim, and Y.~G. Ha (2020).
+\newblock {Model Evaluation for Forecasting Traffic Accident Severity in Rainy
+  Seasons Using Machine Learning Algorithms: Seoul City Study}.
+\newblock {\em Applied Sciences\/}~{\em 10\/}(1), 129.
+
+\bibitem[\protect\citeauthoryear{Rifat, Alam, and Saha}{Rifat
+  et~al.}{2024}]{rifat2024}
+Rifat, M. A.~K., B.~Alam, and D.~Saha (2024).
+\newblock {An Interpretable Machine Learning Approach to Injury Severity
+  Prediction}.
+\newblock {\em Transportation Research Record\/}~{\em 2678\/}(3), 312--323.
+
+\bibitem[\protect\citeauthoryear{Santos, Dias, and Amado}{Santos
+  et~al.}{2021}]{santos2021}
+Santos, K., J.~P. Dias, and C.~Amado (2021).
+\newblock {A Literature Review of Machine Learning Algorithms for Crash Injury
+  Severity Prediction}.
+\newblock {\em Journal of Safety Research\/}~{\em 80}, 254--269.
+
+\bibitem[\protect\citeauthoryear{{U.S. Department of Transportation}}{{U.S.
+  Department of Transportation}}{2016}]{usdot2016}
+{U.S. Department of Transportation} (2016).
+\newblock {Crash Cost Estimates by Maximum Police-Reported Injury Severity}.
+\newblock Technical report DOT HS 812 231, National Highway Traffic Safety
+  Administration (NHTSA).
+
+\bibitem[\protect\citeauthoryear{Wang, Mohammed, and Chauhan}{Wang
+  et~al.}{2020}]{wang2020}
+Wang, C., A.~Mohammed, and R.~S. Chauhan (2020).
+\newblock {Road Car Accident Prediction Using a Machine-Learning-Enabled Data
+  Analysis}.
+\newblock {\em Sustainability\/}~{\em 15\/}(7), 5939.
+
+\end{thebibliography}

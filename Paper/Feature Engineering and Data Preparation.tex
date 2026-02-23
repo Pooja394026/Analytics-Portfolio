@@ -1,0 +1,41 @@
+\section{Feature Engineering and Data Preparation}
+
+\subsection{Comprehensive Feature Engineering Process}
+
+\textbf{Temporal Features:}
+\begin{enumerate}[noitemsep]
+\item \textbf{Daylight Presence (Y/N):} Engineered using astronomical data for New York City, imported suntime calculations to determine precise sunrise and sunset times for each crash date, then cross-referenced with crash time to create a binary daylight indicator. This feature captures the critical safety implications of visibility conditions.
+\item \textbf{Time of Day Categories:} Extracted from crash timestamp and categorized into six distinct periods: Early Morning (5:00-7:59), Morning (8:00-11:59), Afternoon (12:00-16:59), Evening (17:00-19:59), Night (20:00-23:59), and Late Night (0:00-4:59). These categories capture circadian rhythm effects and traffic pattern variations.
+\item \textbf{Weekday vs. Weekend:} Binary indicator extracted from crash date to capture differential risk patterns between weekday commuting periods and weekend recreational driving.
+\item \textbf{Seasonal Variables:} Extracted from crash date and categorized into four seasons: Winter (Dec-Feb), Spring (Mar-May), Summer (Jun-Aug), and Fall (Sep-Nov). These categories capture weather pattern effects and seasonal driving behavior variations.
+\end{enumerate}
+
+\textbf{Geographic and Licensing Features:}
+\begin{enumerate}[noitemsep]
+\item \textbf{In-State License Indicator:} Binary variable indicating whether the driver holds a New York State license, extracted from Driver License Jurisdiction field. This feature captures familiarity with local traffic patterns and regulations.
+\item \textbf{In-State Vehicle Registration:} Binary indicator for vehicles registered in New York State, providing additional context for driver-vehicle familiarity.
+\item \textbf{Borough Indicators:} Categorical variables for each of NYC's five boroughs, capturing distinct traffic patterns, infrastructure characteristics, and demographic factors.
+\end{enumerate}
+
+\textbf{Environmental Integration:}
+\begin{enumerate}[noitemsep]
+\item \textbf{Weather Variables:} Temperature (°C), Humidity Percentage, Precipitation (mm), Wind Speed (kph), and categorical Weather Descriptions from NOAA hourly observations matched to crash time and location.
+\item \textbf{Weather Categorization:} Systematic categorization of weather descriptions into interpretable groups including Clear, Cloudy, Rain, Snow, Fog, and extreme weather conditions.
+\end{enumerate}
+
+\subsection{Driving Behavior Group Classification System}
+
+A key innovation involves transforming the complex contributing factor information into seven interpretable behavioral risk categories. The original contributing factors, written by police officers using free-form text, were systematically converted into standardized behavioral groups:
+
+\begin{enumerate}[noitemsep]
+\item \textbf{Driver Distraction} --- Behaviors where the driver's attention was diverted from the primary task of driving, including various forms of cognitive, visual, or manual distractions that compromise driving performance.
+\item \textbf{Under Influence} --- Incidents where the driver's cognitive or physical abilities were impaired due to substance use, including alcohol, illegal drugs, or prescription medications affecting driving capability.
+\item \textbf{Driver Health Issue} --- Physical or mental health conditions that compromised the driver's ability to operate the vehicle safely, including fatigue, medical episodes, or physical disabilities affecting driving performance.
+\item \textbf{Rule Violation} --- Deliberate or inadvertent violations of traffic laws and regulations, including speed violations, failure to yield, and disregard for traffic control devices.
+\item \textbf{Unsafe Maneuver} --- Aggressive or improper driving behaviors that create hazardous conditions, including dangerous lane changes, following too closely, and other risky driving actions.
+\item \textbf{Environment Risk} --- External environmental factors that contributed to the crash, including adverse road conditions, weather-related hazards, debris, or defective infrastructure elements.
+\item \textbf{Vehicle Defect} --- Mechanical failures or defects in the vehicle that contributed to the crash, including brake systems, steering components, tires, or other critical vehicle components.
+\item \textbf{Other Factors} --- Contributing factors not fitting the above categories, including unspecified circumstances and unique crash causation factors that cannot be classified into standard behavioral groups.
+\end{enumerate}
+
+This behavioral categorization system enables direct translation of model insights into actionable risk management strategies for both insurance pricing and safety interventions.

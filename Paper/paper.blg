@@ -1,0 +1,71 @@
+This is BibTeX, Version 0.99d (TeX Live 2024)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: paper.aux
+The style file: chicago.bst
+Database file #1: ../References/references.bib
+I was expecting a `,' or a `}'---line 67 of file ../References/references.bib
+ : @techreport{New 
+ :                 York City2023,
+I'm skipping whatever remains of this entry
+Repeated entry---line 75 of file ../References/references.bib
+ : @techreport{New
+ :                 York Citydot2010,
+I'm skipping whatever remains of this entry
+Warning--no key, author in New
+Warning--no author, editor, or organization in New
+Warning--to sort, need author or key in New
+Warning--no key, author in New
+Warning--no author, editor, or organization in New
+Warning--no key, author in New
+Warning--no author, editor, or organization in New
+Warning--no key, author in New
+Warning--no author, editor, or organization in New
+Warning--empty author in New
+Warning--empty year in New
+Warning--empty title in New
+Warning--empty institution in New
+Warning--no number and no volume in gutierrez2024
+Warning--page numbers missing in gutierrez2024
+Warning--empty year in investopedia
+You've used 16 entries,
+            2861 wiz_defined-function locations,
+            703 strings with 7031 characters,
+and the built_in function-call counts, 10035 in all, are:
+= -- 846
+> -- 704
+< -- 3
++ -- 200
+- -- 232
+* -- 883
+:= -- 1828
+add.period$ -- 48
+call.type$ -- 16
+change.case$ -- 112
+chr.to.int$ -- 16
+cite$ -- 36
+duplicate$ -- 280
+empty$ -- 619
+format.name$ -- 268
+if$ -- 1858
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 9
+newline$ -- 82
+num.names$ -- 150
+pop$ -- 96
+preamble$ -- 1
+purify$ -- 208
+quote$ -- 0
+skip$ -- 276
+stack$ -- 0
+substring$ -- 487
+swap$ -- 91
+text.length$ -- 3
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 320
+warning$ -- 16
+while$ -- 136
+width$ -- 0
+write$ -- 210
+(There were 2 error messages)

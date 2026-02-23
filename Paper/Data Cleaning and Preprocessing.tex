@@ -1,0 +1,29 @@
+\section{Data Cleaning and Preprocessing}
+
+\subsection{Comprehensive Data Cleaning Process}
+
+The data cleaning process was designed to maintain data integrity while maximizing the analytical value of the integrated dataset. Key cleaning procedures included:
+
+\textbf{Missing Value Treatment:}
+\begin{enumerate}[noitemsep]
+\item \textbf{Categorical Variables:} Created explicit ``missing'' levels for categorical variables including License Status, State Registration, and Vehicle License Status. This approach enables the model to learn patterns associated with missing information rather than discarding potentially valuable observations.
+\item \textbf{Continuous Variables:} For continuous weather variables where missing data represented less than two percent of observations, these records were removed from the dataset rather than applying imputation techniques. This approach was chosen to avoid introducing bias that could result from imputation methods, maintaining the integrity of the weather data which is critical for severity prediction.
+\end{enumerate}
+
+\textbf{Categorical Variable Consolidation:}
+\begin{enumerate}[noitemsep]
+\item \textbf{Vehicle Type Consolidation:} The original Vehicle Type field contained over 200 unique categories, many with very few observations. Sparse categories were systematically consolidated into broader vehicle type groups, with remaining low-frequency categories assigned to an ``Other'' category. This consolidation improves model stability while preserving meaningful vehicle type distinctions.
+\end{enumerate}
+
+\textbf{Outlier Detection and Removal:}
+\begin{enumerate}[noitemsep]
+\item \textbf{Age Restrictions:} Driver ages were filtered to the realistic range of 16-114 years, removing clear data entry errors while retaining the full spectrum of legal drivers.
+\item \textbf{Vehicle Year Validation:} Removed vehicles with manufacture dates after 2025, eliminating impossible future dates that indicate data entry errors.
+\item \textbf{Geographic Validation:} Verified that all collision coordinates fall within NYC boundaries, removing erroneous location data.
+\end{enumerate}
+
+\textbf{Data Type Corrections:}
+\begin{enumerate}[noitemsep]
+\item Converted Person ID, Vehicle ID, and Crash ID fields from numeric to object data types to prevent unintended mathematical operations on identifier variables.
+\item Standardized date and time formats across all temporal variables to ensure consistent time-based analysis.
+\end{enumerate}

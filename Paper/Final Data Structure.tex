@@ -1,0 +1,68 @@
+
+\section{Final Data Structure}
+
+The final dataset prepared for machine learning analysis contains 135,966 observations across 45 variables, representing a comprehensive foundation for injury severity prediction. The variables are organized into several key categories that capture different dimensions of crash risk factors. For each category, we present key insights discovered when analyzing the relationship between these variables and crash severity outcomes, providing empirical validation of their predictive relevance.
+
+
+\textbf{Demographic Variables (two features):} Age and Sex provide essential driver demographic information that influences crash severity patterns through physiological and behavioral factors. A key insight shown in the figure below reveals that fatal crashes involve slightly younger drivers on average, while severe injury crashes show wider age distribution patterns.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{p_Age_by_Severity.png}
+\caption{Age Distribution by Crash Severity}
+\label{fig:age_severity}
+\end{figure}
+
+\textbf{Temporal Variables (eight features):} Time-related features including daylight presence, time of day categories (Early Morning, Morning, Afternoon, Evening, Night), weekday/weekend indicators, and seasonal variables capture temporal patterns in severity risk. The analysis reveals that weekend crashes demonstrate higher fatal proportions compared to weekday incidents, as illustrated below.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{Severity_by_Weekday or Weekend.png}
+\caption{Fatal Crash Proportion by Weekday vs Weekend}
+\label{fig:weekday_weekend}
+\end{figure}
+
+\textbf{Environmental Variables (10 features):} Weather-related features including temperature, humidity, precipitation, wind speed, and categorical weather conditions (Cloudy, Fair, Rain, Light Rain, Heavy Rain, Snow, Ice, Fog) provide critical environmental context for crash severity prediction. The figure below depicts distinct severity patterns across different weather conditions, with certain weather types associated with higher fatal proportions.
+
+\begin{figure}[H]
+\centering
+\begin{adjustwidth}{-2cm}{-2cm} 
+\includegraphics[width=1.25\textwidth]{Severity_by_Weather.png}
+\end{adjustwidth}
+\caption{Severity Distribution by Weather Conditions}
+\label{fig:weather_severity}
+\end{figure}
+
+\textbf{Geographic Variables (five features):} Borough indicators for Brooklyn, Bronx, Manhattan, Queens, and Staten Island capture spatial patterns and infrastructure differences across NYC's diverse urban environments. Analysis reveals clear spatial patterns with Queens and Brooklyn demonstrating highest risk concentrations. To enable meaningful comparison across severity levels, economic cost estimates are applied: Non-Severe (\$5,700), Severe (\$80,000), and Fatal (\$1,800,000) derived from NSC, FMCSA, and USDOT data, providing a common scale for unified risk mapping.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{zipcode_normalized_injury_cost_map.png}
+\caption{Estimated Cost per Accident by ZIP Code}
+\label{fig:geographic_risk}
+\end{figure}
+
+\textbf{Behavioral Variables (eight features):} Driving behavior group classifications including Driver Distraction, Under Influence, Driver Health Issue, Rule Violation, Unsafe Maneuver, Environment Risk, Vehicle Defect, and Other Factors provide systematic categorization of crash causation patterns. Rule violations emerge as the highest risk category with nearly 20 percent fatal proportion, significantly exceeding other behavioral groups.
+
+\begin{figure}[H]
+\centering
+\begin{adjustwidth}{-2cm}{-2cm} 
+\includegraphics[width=1.25\textwidth]{Severity_by_Driving Behavior Group.png}
+\end{adjustwidth}
+\caption{Fatal Proportion by Driving Behavior Group}
+\label{fig:behavior_fatal}
+\end{figure}
+
+\textbf{Vehicle and Licensing Variables (12 features):} Vehicle type groups (Small Passenger Vehicle, Large Passenger Vehicle, Two-Wheeler and Micro-Mobility, Light Truck or Utility), vehicle year, license status (Licensed, Unlicensed, Permit), and state registration indicators provide vehicle and driver qualification context. Two-wheel and micro-mobility vehicles demonstrate dramatically higher severe injury proportions compared to other vehicle types, which is logical given the lack of protective barriers and safety structures that passenger vehicles provide. Although these vehicles show lower fatal rates, the elevated severe injury risk reflects the inherent vulnerability of motorcycles, scooters, and bicycles in crash scenarios where riders are directly exposed to impact forces.
+
+\begin{figure}[H]
+\centering
+\begin{adjustwidth}{-2cm}{-2cm} 
+\includegraphics[width=1.25\textwidth]{Severity_by_Vehicle Type Group.png}
+\end{adjustwidth}
+\caption{Fatal Proportion by Vehicle Type Group}
+\label{fig:vehicle_fatal}
+\end{figure}
+
+
+The target variable maintains the three class structure with Non-Severe (46.4 percent), Severe (38.1 percent), and Fatal (15.5 percent) categories, providing balanced representation across severity outcomes. This final data structure represents a carefully engineered dataset optimized for machine learning analysis while maintaining interpretability and practical relevance for insurance and safety applications.

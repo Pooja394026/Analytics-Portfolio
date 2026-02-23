@@ -1,0 +1,104 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{natbib}
+\usepackage[hidelinks]{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{changepage}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{cite}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage[parfill]{parskip}
+
+% Set graphics path to Figures folder
+\graphicspath{{../Figures/}}
+
+% Page formatting
+\doublespacing
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\thepage}
+\lhead{Modeling Injury Severity in NYC Traffic Accidents for Insurance Risk}
+
+% Title formatting
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
+
+% Custom title page
+\begin{document}
+
+% UCF Title Page
+\begin{titlepage}
+    \centering
+    
+    % UCF Logo
+    \includegraphics[width=3cm]{../Icon/UCF-symbol.jpg}
+    
+    \vspace{1cm}
+    
+    % University Name
+    {\Large \textbf{University of Central Florida}}
+    
+    \vspace{0.5cm}
+    
+    % Department
+    {\large Department of Economics\\
+    Business Analytics, M.S}
+    
+    \vspace{1cm}
+    
+    % Professor and Year info
+    \textbf{Professor:} Dr. Harry J. Paarsch\\
+    \textbf{Name:} Pooja
+    
+    \vspace{2cm}
+    
+    % Project Title
+    {\LARGE \textbf{Modeling Injury Severity in NYC Traffic Accidents for Insurance Risk}}
+    
+    \vspace{1cm}
+    
+    % Date
+    {\large July 2025}
+    
+    \vfill
+    
+\end{titlepage}
+
+
+
+\input{Introduction and Motivation}
+\input{Literature Review}
+\input{Theoretical Framework}
+\input{Data Preparation}
+\input{Data Cleaning and Preprocessing}
+\input{Feature Engineering and Data Preparation}
+\input{Data Quality Assessment and Feature Selection}
+\input{Final Data Structure}
+\input{Modeling Framework}
+\input{Results and Analysis}
+\input{Insurance Industry Applications}
+\input{Public Safety and Policy Applications}
+\input{Model Limitations and Future Research}
+\input{Conclusion}
+\input{Acknowledgements}
+\input{Appendix}
+
+
+\nocite{*}  % Include all references from .bib file
+\bibliographystyle{chicago}
+\bibliography{../References/references}
+
+\end{document}

@@ -1,0 +1,20 @@
+\section{Data Quality Assessment and Feature Selection}
+
+\subsection{Irrelevant Variable Removal}
+
+Several categories of variables were systematically removed from the dataset as they were either irrelevant to the modeling objectives or contained excessive categorical levels that would create computational inefficiency without analytical value.
+
+\begin{enumerate}[noitemsep]
+\item \textbf{Identifier Variables} --- Person ID, Vehicle ID, and Crash ID fields were removed as these are unique identifiers serving as joining keys rather than predictive features. These variables have no relationship to crash severity outcomes and would only introduce noise into the modeling process.
+\item \textbf{Geographic Granularity Variables} --- ZIP code was removed due to excessive categorical levels that would create computational burden without meaningful predictive improvement over the borough-level geographic indicators already included in the feature set.
+\item \textbf{Post-Incident Variables} --- Variables capturing information recorded after the crash event, such as point of impact details, were excluded as they represent consequences rather than causal factors. These variables are not available at the time of prediction and including them would create data leakage issues.
+\item \textbf{Redundant Temporal Variables} --- Raw datetime, longitude, and latitude variables were removed after extracting engineered features from them. The original timestamp and coordinate data served their purpose in creating meaningful temporal and geographic features and were no longer needed for the modeling process.
+\end{enumerate}
+
+\subsection{Feature Selection}
+
+To optimize model performance and reduce computational complexity, feature selection was conducted using Random Forest feature importance rankings. This approach identifies variables that contribute most significantly to predicting crash severity outcomes while removing features with minimal predictive value. This data-driven feature selection approach does not affect post-pruning inference validity, as the focus remains on predictive performance rather than causal inference, which is appropriate given the machine learning focus of this analysis.
+
+The Random Forest algorithm was applied to calculate feature importance scores for all 53 variables in the dataset. Based on these rankings, the bottom seven variables with the lowest feature importance scores were systematically removed from the final modeling dataset. Model performance was evaluated both before and after feature removal to ensure that eliminating low-importance variables did not compromise predictive accuracy.
+
+The validation confirmed that removing these seven low-importance features maintained equivalent model performance while reducing dataset dimensionality, resulting in a more efficient and interpretable final model with 46 features for the machine learning analysis.
