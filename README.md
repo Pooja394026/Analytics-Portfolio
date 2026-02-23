@@ -1,2 +1,2 @@
-# Business-Analytics-Portfolio
-A collection of end-to-end business analytics and data science projects.
+# Analytics-Portfolio
+End-to-end analytics and data science projects.
